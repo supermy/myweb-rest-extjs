@@ -6,31 +6,33 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
-
+ 
 <html>
 <head>
-	<title>CRUD ExtJS Grid</title>
+	<title>ExtJS Grid增删改查</title>
 	
 	<!-- ExtJS css -->
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/ext-3.2.1/resources/css/ext-all.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx}/resources/ext/resources/css/ext-all.css" />
 	
 	<!-- Row Editor plugin css -->
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/ext-3.2.1/examples/ux/css/RowEditor.css" />
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/ext-3.2.1/examples/shared/examples.css" />
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/ext-3.2.1/examples/ux/css/RowEditor.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx}/resources/ext/examples/ux/css/ux-all.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx}/resources/ext/examples/shared/examples.css" />
 
 	<!-- App custom css -->
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/crudgrid.css" />
 	
 	<!-- ExtJS js -->
-	<script src="${ctx}/resources/ext-3.2.1/adapter/ext/ext-base.js"></script>
-	<script src="${ctx}/resources/ext-3.2.1/ext-all.js"></script>
+	<script src="${ctx}/resources/ext/adapter/ext/ext-base.js"></script>
+	<script src="${ctx}/resources/ext/ext-all.js"></script>
+	<script src="${ctx}/resources/ext/ext-lang-zh_CN.js"></script>
 	
 	<!-- Row Editor plugin js -->
-	<script src="${ctx}/resources/ext-3.2.1/examples/ux/RowEditor.js"></script>
+	<script src="${ctx}/resources/ext/examples/ux/ux-all.js"></script>
 	
 	<!-- App js -->
 	<script src="${ctx}/resources/crud-grid.js"></script>
+	
+	
 	
 </head>
 <body>
