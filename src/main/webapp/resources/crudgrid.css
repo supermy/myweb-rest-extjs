@@ -47,18 +47,18 @@
 
 .icon-user-add {
 	background-image:
-		url(ext-3.2.1/examples/shared/icons/fam/user_add.gif)
+		url(ext/examples/shared/icons/fam/user_add.gif)
 		!important;
 }
 
 .icon-user-delete {
 	background-image:
-		url(ext-3.2.1/examples/shared/icons/fam/user_delete.gif)
+		url(ext/examples/shared/icons/fam/user_delete.gif)
 		!important;
 }
 
 .icon-user-save {
 	background-image:
-		url(ext-3.2.1/examples/shared/icons/save.gif)
+		url(ext/examples/shared/icons/save.gif)
 		!important;
 }
