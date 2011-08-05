@@ -22,7 +22,6 @@ import com.supermy.rest.domain.Contact;
  * /contacts       POST    => batchCreate()  
  * /contacts       PUT     => batchUpdate()  
  * /contacts/del   PUT     => batchDelete()
- * 
  * </pre>
  * 
  * @author james mo rest 客户端
