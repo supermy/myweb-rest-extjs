@@ -37,8 +37,10 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-
+	
+	<import resource="datasource-config.xml" />
 	<import resource="hibernate/hibernate-config.xml" />
+	<import resource="ibatis/ibatis-config.xml" />
 	
 
 </beans>

@@ -14,7 +14,7 @@
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
 
- 	<bean id="restTemplate" class="com.supermy.rest.client.MyRestTemplate">
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
 			<property name="messageConverters">
 				<list>
 					<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
