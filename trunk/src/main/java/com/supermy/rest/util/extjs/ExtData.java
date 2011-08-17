@@ -30,6 +30,7 @@ public class ExtData<T> extends ExtResponse {
 			return;
 			for (T object : item) {
 				data.add(object);
+				total=total+1;
 			}
 	}
 
@@ -37,6 +38,7 @@ public class ExtData<T> extends ExtResponse {
 		if (item == null)
 			return;
 		data.add(item);
+		total=total+1;
 	}
 
 	public int getTotal() {

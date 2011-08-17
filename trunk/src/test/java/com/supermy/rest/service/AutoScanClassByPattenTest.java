@@ -20,7 +20,7 @@ import org.springframework.util.ClassUtils;
 import com.supermy.rest.domain.Contact;
 
 public class AutoScanClassByPattenTest {
-
+ 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}

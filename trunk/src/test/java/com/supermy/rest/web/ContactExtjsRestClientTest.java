@@ -24,7 +24,7 @@ import com.supermy.rest.util.extjs.ExtData;
 @ContextConfiguration(locations = { "classpath:spring/servlet-context.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 public class ContactExtjsRestClientTest {
-
+ 
 	private Logger log = LoggerFactory.getLogger(ContactExtjsRestClientTest.class);
 
 	@Autowired
@@ -55,7 +55,7 @@ public class ContactExtjsRestClientTest {
 		log.debug("============={}",data);			
 		List<Long> ids=new ArrayList<Long>();
 		for (Object obj : data) {
-			String id = ((HashMap)obj).get("id").toString();
+			String id = ((HashMap)obj).get("pkid").toString();
 			ids.add(new Long(id));
 			log.debug("============={}",id);			
 		}		

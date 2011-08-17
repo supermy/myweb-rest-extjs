@@ -40,7 +40,9 @@
 	
 	<import resource="datasource-config.xml" />
 	<import resource="hibernate/hibernate-config.xml" />
-	<import resource="ibatis/ibatis-config.xml" />
+	<!-- import resource="ibatis/ibatis-config.xml" /-->
+	<!---->  
+	<import resource="mybatis/mybatis-context.xml" />
 	
 
 </beans>

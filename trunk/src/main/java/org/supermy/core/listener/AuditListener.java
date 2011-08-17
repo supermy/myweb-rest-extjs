@@ -28,17 +28,17 @@ public class AuditListener implements SaveOrUpdateEventListener {
 		//如果对象是AuditableEntity子类,添加审计信息.
 		if (object instanceof BaseDomain) {
 			BaseDomain entity = (BaseDomain) object;
-			if ( null==entity.getId() || entity.getId()==0 || entity.getId()==-1 ) {
+			if ( null==entity.getPkId() || entity.getPkId()==0 || entity.getPkId()==-1 ) {
 				//创建新对象
-				entity.setCreate(new Date());
-				entity.setUpdate(new Date());
+				entity.setCreateDate(new Date());
+				entity.setUpdateDate(new Date());
 //				entity.setCreateBy(SecurityUtils.getCurrentUserName());
 				entity.setCreateBy("testuser");
 				entity.setUpdateBy("testuser");
 				entity.setEnabled(true);
 			} else {
 				//修改旧对象
-				entity.setUpdate(new Date());
+				entity.setUpdateDate(new Date());
 //				entity.setUpdateBy(SecurityUtils.getCurrentUserName());
 				entity.setUpdateBy("testuser");
 			}

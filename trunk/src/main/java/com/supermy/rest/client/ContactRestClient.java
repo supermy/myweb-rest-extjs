@@ -63,7 +63,7 @@ public class ContactRestClient {
 
 	public Long updateContact(long id, Contact contact) {
 		restTemplate.put(BASE_URL + "/{id}", contact,id);
-		return contact.getId();
+		return contact.getPkId();
 	}
 
 	@SuppressWarnings("unchecked")

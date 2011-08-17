@@ -20,6 +20,7 @@ import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
@@ -31,6 +32,7 @@ import org.springframework.util.Assert;
  * @param <T>
  * @param <PK>
  */
+@Transactional(value="hibernateTransactionManager")
 public abstract class BaseHibernateDao<T, PK extends Serializable> {
 	protected Log log = LogFactory.getLog(getClass());
 	private HibernateTemplate ht;
@@ -293,7 +295,7 @@ public abstract class BaseHibernateDao<T, PK extends Serializable> {
 					throws HibernateException, SQLException {
 
 				StringBuilder hqlSb = new StringBuilder(" FROM ")
-						.append(getEntityClass().getSimpleName()).append(" o ORDER BY o.create desc");
+						.append(getEntityClass().getSimpleName()).append(" o ORDER BY o.createDate desc");
 				String countHql = "SELECT count(*) " + hqlSb.toString();
 				Query query = session.createQuery(hqlSb.toString());
 				Query countQuery = session.createQuery(countHql);// FIXME

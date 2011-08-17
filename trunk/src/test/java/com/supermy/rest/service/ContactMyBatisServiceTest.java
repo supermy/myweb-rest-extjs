@@ -1,9 +1,10 @@
 package com.supermy.rest.service;
 
-import static junit.framework.Assert.assertEquals;
-
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+
+import junit.framework.Assert;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,16 +17,15 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.supermy.core.service.Page;
 
 import com.supermy.rest.domain.Contact;
-
+ 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring/servlet-context.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
-public class ContactServiceTest  {
-	private final Logger logger = LoggerFactory
-			.getLogger(ContactServiceTest.class);
- 
+public class ContactMyBatisServiceTest  {
+	private final Logger logger = LoggerFactory.getLogger(ContactMyBatisServiceTest.class);
+
 	@Autowired
-	private ContactService userService;
+	private ContactMyBatisService cs;
 
 	private Page<Contact> page = new Page<Contact>(1,3);
 
@@ -34,24 +34,45 @@ public class ContactServiceTest  {
 	 */
 	@Test
 	public void crudContact() {
-		long count = userService.count("select count(*) from Contact");
-		logger.debug("count:{}", count);
-		
-		List<Contact> findAll = userService.findAll();
 		
 		Contact c = new Contact();
 		c.setName("superadmin");
 		c.setEmail("test@core.com");
 		c.setBirthDate(new Date());
 		c.setPhone("110119");
-		userService.saveOrUpdate(c);
-		long count2 = userService.count("select count(*) from Contact");
-		assertEquals(count2, count+1);
+		c.setCreateBy("test");
+		c.setUpdateBy("test");
+		
+		 cs.addContact(c);
+		Long id=c.getPkId();
+		Assert.assertNotNull(id);
+		Contact contact=cs.getContact(id);
+		
+		Assert.assertNotNull(contact);
+		
+		contact.setName("update");
+		cs.updateContact(contact);
+		
+		Contact contact2 = cs.getContact(id);
+		Assert.assertEquals(contact2.getName(), "update");
+		
+		cs.delContact(contact2.getPkId());
 
-		logger.debug("count:{}", count);
-		userService.delete(c);
-		long count3 = userService.count("select count(*) from Contact");
-		logger.debug("count:{}", count);
-		assertEquals(count3, count);
+		c.setPkId(null);
+		cs.addContact(c);
+		c.setPkId(null);
+		cs.addContact(c);
+		
+		List<Contact> result = cs.findByName("super%");
+		logger.debug("result:{}",result.size());
+		logger.debug("result:{}",result.get(0));
+		
+		c.setPkId(null);
+		cs.addContact(c);
+		long[] ids={c.getPkId()};
+//		java.util.List list = Arrays.asList(ids); 
+//		logger.debug("result:{}",list.get(0));
+		cs.delContacts(ids);
+		
 	}
 }
