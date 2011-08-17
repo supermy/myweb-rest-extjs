@@ -10,6 +10,7 @@
 <html>
 <head>
 	<title>ExtJS Grid增删改查</title>
+	<!-- script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script-->
 	
 	<!-- ExtJS css -->
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/ext/resources/css/ext-all.css" />
@@ -32,8 +33,7 @@
 	<!-- App js -->
 	<script src="${ctx}/resources/crud-grid.js"></script>
 	
-	
-	
+
 </head>
 <body>
 	<div id="crud-grid"></div>
