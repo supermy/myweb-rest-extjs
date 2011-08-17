@@ -17,20 +17,20 @@ import com.supermy.rest.util.extjs.ExtDateSerializer;
 
 
 @Entity
-@Table(name="CONTACT")
+@Table(name="contact")
 @org.hibernate.annotations.Entity(dynamicUpdate = true, dynamicInsert = true)
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Contact extends BaseDomain{
 	
 	
-	@Column(name="CONTACT_NAME", nullable=false)
+	@Column(nullable=false)
 	private String name;
-	@Column(name="CONTACT_PHONE", nullable=false)
+	@Column(nullable=false)
 	private String phone;
-	@Column(name="CONTACT_EMAIL", nullable=false)
+	@Column(nullable=false)
 	private String email;
-	@Column(name="BIRTHDATE", nullable=false)
-    private Date birthDate;
+	@Column(name="birthdate", nullable=false)
+    private Date birthDate=new Date();
 	
 	
 ////    private Date createDate;

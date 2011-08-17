@@ -120,7 +120,8 @@ public class ContactExtjsController {
 		data.setSuccess(true);
 
 		return data;
-	}	
+	}
+	
 	/**
 	 * 删除
 	 * 

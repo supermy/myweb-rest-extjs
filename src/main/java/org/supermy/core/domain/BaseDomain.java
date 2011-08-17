@@ -1,5 +1,6 @@
 package org.supermy.core.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
-import javax.persistence.Version;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -28,7 +28,9 @@ import com.supermy.rest.util.extjs.ExtDateSerializer;
  */
 @JsonAutoDetect
 @MappedSuperclass
-public class BaseDomain {
+public class BaseDomain implements Serializable{
+
+	private static final long serialVersionUID = -2023885064840350673L;
 
 	public String toString() {
 		 //开发模式
@@ -45,11 +47,11 @@ public class BaseDomain {
 		// if (o.getClass().getName().equals(getClass().getName())) {// FIXME
 		// return false;
 		// }
-		return o.getId().equals(id);
+		return o.getPkId().equals(pkId);
 	}
 
 	public int hashCode() {
-		return (id != null ? id.hashCode() : 0);
+		return (pkId != null ? pkId.hashCode() : 0);
 	}
 //
 //	/**
@@ -65,8 +67,8 @@ public class BaseDomain {
 	@Comment("物理主键")
 	@Id
 	@GeneratedValue
-	@Column(name = "ID_")
-	private Long id;// =new Long(0);
+	@Column
+	private Long pkId;// =new Long(0);
 
 	//FIXME 通过类型区分不同的domain;重复的ID索引会被覆盖，对于数字型ID不是通用的解决办法；
 	@Transient
@@ -110,23 +112,23 @@ public class BaseDomain {
 //	 }
 	
 	@Comment(value="创建时间",desc="数据的保存时间")
-	@Column(name = "CREATE_",updatable = false)//本属性只在save时有效,update时无效
-	private Date create = new Date();
+	@Column(updatable = false)//本属性只在save时有效,update时无效
+	private Date createDate = new Date();
 
 	@Comment("更新时间")
-	@Column(name = "UPDATE_",insertable = false)//本属性只在update时有效,save时无效
-	private Date update = new Date();
+	@Column(insertable = false)//本属性只在update时有效,save时无效
+	private Date updateDate = new Date();
 
 	@Comment("创建人")
-	@Column(name = "CREATE_USER",length=80,updatable = false)//本属性只在save时有效,update时无效
+	@Column(length=80,updatable = false)//本属性只在save时有效,update时无效
 	private String createBy;
 
 	@Comment("最后修改人")
-	@Column(name = "UPDATE_USER",length=80,insertable = false)//本属性只在update时有效,save时无效
+	@Column(length=80,insertable = false)//本属性只在update时有效,save时无效
 	private String updateBy;
 	
 	@Comment("有效")
-	@Column(name = "ENABLED_")
+	@Column
 	private boolean enabled = true;
 
 	/**
@@ -149,14 +151,14 @@ public class BaseDomain {
 	/**
 	 * @return
 	 */
-    @JsonProperty("id")    
-	public void setId(Long id) {
-		this.id =id;
+    @JsonProperty("pkid")    
+	public void setPkId(Long id) {
+		this.pkId =id;
 	}
 
-    @JsonProperty("id")    
-	public Long getId() {
-		return id;
+    @JsonProperty("pkid")    
+	public Long getPkId() {
+		return pkId;
 	}
 	
 
@@ -165,8 +167,8 @@ public class BaseDomain {
 	 */
     @JsonSerialize(using = ExtDateSerializer.class)
     @JsonProperty("createdate")	
-	public Date getCreate() {
-		return create;
+	public Date getCreateDate() {
+		return createDate;
 	}
 
 	/**
@@ -175,8 +177,8 @@ public class BaseDomain {
 	 */
     @JsonDeserialize(using = ExtDateDeserializer.class)
     @JsonProperty("createdate")    
-	public void setCreate(Date create) {
-		this.create = create;
+	public void setCreateDate(Date create) {
+		this.createDate = create;
 	}
 
 
@@ -192,14 +194,14 @@ public class BaseDomain {
 
     @JsonSerialize(using = ExtDateSerializer.class)
     @JsonProperty("updatedate")	
-	public Date getUpdate() {
-		return update;
+	public Date getUpdateDate() {
+		return updateDate;
 	}
 
     @JsonDeserialize(using = ExtDateDeserializer.class)
     @JsonProperty("updatedate")    
-	public void setUpdate(Date update) {
-		this.update = update;
+	public void setUpdateDate(Date update) {
+		this.updateDate = update;
 	}
 
     @JsonProperty("updateby")    

@@ -19,7 +19,7 @@ import com.supermy.rest.domain.Contact;
 @ContextConfiguration(locations = { "classpath:spring/servlet-context.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 public class ContactRestClientTest {
-
+ 
 	private Logger log = LoggerFactory.getLogger(ContactRestClientTest.class);
 
 	@Autowired
@@ -37,10 +37,10 @@ public class ContactRestClientTest {
 		newcontact.setPhone("110119");
 		Contact  createcontact = contactRestClient.createContact(newcontact);
 		log.debug("new  conact {}", createcontact);
-		Contact contact = contactRestClient.getContact(createcontact.getId());
+		Contact contact = contactRestClient.getContact(createcontact.getPkId());
 		log.debug("get conact {}", contact);
-		Contact editcontact = contactRestClient.editContact(createcontact.getId());
-		Long id = contactRestClient.updateContact(editcontact.getId(),
+		Contact editcontact = contactRestClient.editContact(createcontact.getPkId());
+		Long id = contactRestClient.updateContact(editcontact.getPkId(),
 				editcontact);
 		contactRestClient.delContacts(id);
 		
@@ -48,7 +48,7 @@ public class ContactRestClientTest {
 		Contact  c2 = contactRestClient.createContact(newcontact);
 		Contact  c3 = contactRestClient.createContact(newcontact);
 		Contact  c4 = contactRestClient.createContact(newcontact);
-		long[] ids={c1.getId(),c2.getId(),c3.getId(),c4.getId()};
+		long[] ids={c1.getPkId(),c2.getPkId(),c3.getPkId(),c4.getPkId()};
 		contactRestClient.batchDeleteContacts(ids);//FIXME
 
 	}
