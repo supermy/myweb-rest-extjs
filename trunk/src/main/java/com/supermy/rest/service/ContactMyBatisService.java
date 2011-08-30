@@ -10,6 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.supermy.rest.domain.Contact;
 
+/**
+ * 
+ * @author james mo
+ *
+ */
 @Repository
 @Transactional(value="myBatisTransactionManager")
 public class ContactMyBatisService{

@@ -10,9 +10,9 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.supermy.core.domain.BaseDomain;
+import org.supermy.core.web.ExtDateDeserializer;
+import org.supermy.core.web.ExtDateSerializer;
 
-import com.supermy.rest.util.extjs.ExtDateDeserializer;
-import com.supermy.rest.util.extjs.ExtDateSerializer;
 
 
 

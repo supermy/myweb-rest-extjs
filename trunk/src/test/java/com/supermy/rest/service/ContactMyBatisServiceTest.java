@@ -1,6 +1,5 @@
 package com.supermy.rest.service;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +18,7 @@ import org.supermy.core.service.Page;
 import com.supermy.rest.domain.Contact;
  
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/servlet-context.xml" })
+@ContextConfiguration(locations = { "classpath*:spring/servlet-context.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 public class ContactMyBatisServiceTest  {
 	private final Logger logger = LoggerFactory.getLogger(ContactMyBatisServiceTest.class);

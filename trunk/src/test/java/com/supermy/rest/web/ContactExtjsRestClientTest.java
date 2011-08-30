@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,18 +13,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.supermy.core.domain.BaseDomain;
+import org.supermy.core.web.ExtData;
 
 import com.supermy.rest.client.ContactExtjsRestClient;
 import com.supermy.rest.domain.Contact;
-import com.supermy.rest.util.extjs.ExtData;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/servlet-context.xml" })
+@ContextConfiguration(locations = { "classpath*:spring/servlet-context.xml"})
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 public class ContactExtjsRestClientTest {
  
-	private Logger log = LoggerFactory.getLogger(ContactExtjsRestClientTest.class);
+	private static final Logger log = LoggerFactory.getLogger(ContactExtjsRestClientTest.class);
 
 	@Autowired
 	private ContactExtjsRestClient c;

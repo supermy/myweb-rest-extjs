@@ -18,12 +18,13 @@ import org.supermy.core.service.Page;
 import com.supermy.rest.domain.Contact;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/servlet-context.xml" })
+@ContextConfiguration(locations = { "classpath*:spring/servlet-context.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 public class ContactServiceTest  {
 	private final Logger logger = LoggerFactory
 			.getLogger(ContactServiceTest.class);
  
+	
 	@Autowired
 	private ContactService userService;
 
