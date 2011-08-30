@@ -14,6 +14,13 @@
 		<slf4j.version>1.6.1</slf4j.version>
 	</properties>
 	<dependencies>
+	
+		<!-- myweb-core -->
+		<dependency>
+			<groupId>com.supermy</groupId>
+			<artifactId>myweb-core</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 
 		<!-- Spring -->
 		<dependency>
@@ -99,9 +106,6 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- <dependency> <groupId>commons-dbcp</groupId> <artifactId>commons-dbcp</artifactId> 
-			<version>1.4</version> </dependency> -->
-
 		<!-- utils begin -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
@@ -140,8 +144,6 @@
 			<artifactId>jta</artifactId>
 			<version>1.1</version>
 		</dependency>
-
-
 
 		<!-- Hibernate -->
 		<dependency>
@@ -188,17 +190,12 @@
 			<version>4.1.0.Final</version>
 		</dependency>
 
-
-
 		<!-- Jackson JSON Mapper -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.6.4</version>
 		</dependency>
-
-		<!-- json <dependency> <groupId>net.sf.json-lib</groupId> <artifactId>json-lib</artifactId> 
-			<version>2.2.3</version> <classifier>jdk15</classifier> </dependency> -->
 
 		<!-- Servlet -->
 		<dependency>
