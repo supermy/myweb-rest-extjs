@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.supermy.core.service.Page;
+import org.supermy.core.web.ExtData;
+import org.supermy.core.web.ExtResponse;
 
 import com.supermy.rest.domain.Contact;
 import com.supermy.rest.service.ContactService;
-import com.supermy.rest.util.extjs.ExtData;
-import com.supermy.rest.util.extjs.ExtResponse;
 
 /**
  * 联系人的增删改查；所有的数据都是以对象集的形式传递。

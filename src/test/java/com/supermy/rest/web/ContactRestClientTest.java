@@ -16,7 +16,7 @@ import com.supermy.rest.client.ContactRestClient;
 import com.supermy.rest.domain.Contact;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring/servlet-context.xml" })
+@ContextConfiguration(locations = { "classpath*:spring/servlet-context.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 public class ContactRestClientTest {
  
@@ -44,9 +44,13 @@ public class ContactRestClientTest {
 				editcontact);
 		contactRestClient.delContacts(id);
 		
+		newcontact.setPkId(null);
 		Contact  c1 = contactRestClient.createContact(newcontact);
+		newcontact.setPkId(null);
 		Contact  c2 = contactRestClient.createContact(newcontact);
+		newcontact.setPkId(null);
 		Contact  c3 = contactRestClient.createContact(newcontact);
+		newcontact.setPkId(null);
 		Contact  c4 = contactRestClient.createContact(newcontact);
 		long[] ids={c1.getPkId(),c2.getPkId(),c3.getPkId(),c4.getPkId()};
 		contactRestClient.batchDeleteContacts(ids);//FIXME

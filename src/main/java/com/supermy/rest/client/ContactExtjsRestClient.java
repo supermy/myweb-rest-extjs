@@ -3,10 +3,9 @@ package com.supermy.rest.client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import org.supermy.core.web.ExtData;
 
 import com.supermy.rest.domain.Contact;
-import com.supermy.rest.util.extjs.ExtData;
-import com.supermy.rest.util.extjs.ExtResponse;
 
  /** 标准的rest方法列表
  * 
