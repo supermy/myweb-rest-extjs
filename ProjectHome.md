@@ -1,0 +1,1 @@
+hibernate3 spring3 rest  extjs ;适用于企业管理，后台个人管理。
